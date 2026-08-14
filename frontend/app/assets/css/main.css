@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+@import 'tailwindcss-primeui';
+
+/* Variable font (self-hosted — the design loads Instrument Sans from Google Fonts) */
+@import '@fontsource-variable/instrument-sans';
+
+/* Design system — split by meaning */
+@import './theme.css'; /* tokens: @theme + :root */
+@import './base.css'; /* @layer base */
+@import './typography.css'; /* heading type scale */
+@import './utilities.css'; /* custom @utility */
+
+/* Volt components live outside Tailwind's auto-scan — register them as @source. */
+@source '../../pages';
+@source '../../components';
+@source '../../shared/volt';
+@source '../../shared';
+@source '../../features';

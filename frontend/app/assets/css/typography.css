@@ -1,0 +1,11 @@
+/* Type scale utilities for the sizes the design expresses with clamp().
+   Fixed-size headings need no utility — they map straight onto the token scale
+   (e.g. .section-title = `text-xl font-semibold`, .info-title = `text-3xl font-semibold`). */
+
+/* .hero-title — used by every page hero (home, about, rentals, tires…). */
+@utility text-hero {
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}

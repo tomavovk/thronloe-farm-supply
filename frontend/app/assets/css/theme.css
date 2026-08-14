@@ -1,0 +1,147 @@
+/* Make `dark:` class-based, not media-based. The storefront is light-only and never
+   adds `.dark`, so this neutralizes the dark: variants baked into Volt components
+   (otherwise OS dark mode flips them — e.g. the primary button turns white). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Design tokens, ported 1:1 from the `:root` block of
+   design/thornloe-farm-supply.html. Design name → token name:
+     --color-bg / --color-surface  → --color-surface   (#fff)
+     --color-surface-alt           → --color-panel
+     --color-border                → --color-line
+     --color-text                  → --color-ink
+     --color-text-muted            → --color-muted
+     --color-accent                → --color-brand
+     --color-accent-hover          → --color-brand-hover
+     --color-accent-soft           → --color-brand-soft
+     --color-accent-2              → --color-brand-deep
+     --color-badge                 → --color-badge */
+@theme {
+  /* ── Fonts ──────────────────────────────────────────────────────
+     Design loads 'Instrument Sans' from Google Fonts; we self-host the
+     variable font via @fontsource-variable (see main.css). */
+  --font-sans: 'Instrument Sans Variable', sans-serif;
+
+  /* ── Brand (red — matched to the Thornloe logo) ──────────────── */
+  --color-brand: oklch(0.54 0.205 24);
+  --color-brand-hover: oklch(0.49 0.2 23);
+  --color-brand-soft: oklch(0.96 0.02 25);
+  --color-brand-deep: oklch(0.49 0.19 23);
+
+  /* Numbered stops exist only for the vendored Volt components, which are
+     written against a 50–950 scale (`bg-brand-500`, `hover:bg-brand-700`).
+     500 is the brand red and 600 its hover; the rest fill the scale. Ported
+     design markup should use the semantic names above, not these. */
+  --color-brand-50: oklch(0.97 0.02 24);
+  --color-brand-100: oklch(0.94 0.04 24);
+  --color-brand-200: oklch(0.88 0.08 24);
+  --color-brand-300: oklch(0.79 0.13 24);
+  --color-brand-400: oklch(0.66 0.19 24);
+  --color-brand-500: oklch(0.54 0.205 24);
+  --color-brand-600: oklch(0.49 0.2 23);
+  --color-brand-700: oklch(0.44 0.18 23);
+  --color-brand-800: oklch(0.38 0.15 23);
+  --color-brand-900: oklch(0.31 0.12 23);
+  --color-brand-950: oklch(0.22 0.08 23);
+  /* Deep danger red — deliberately distinct from brand (out-of-stock/sale tags). */
+  --color-badge: oklch(0.5 0.19 25);
+
+  /* ── Surfaces & text (warm neutrals) ────────────────────────── */
+  --color-surface: #ffffff;
+  --color-panel: #f6f6f2;
+  --color-line: #e7e6df;
+  --color-ink: #232620;
+  --color-muted: #6b6f64;
+  /* Tertiary text / faint icons. The design expresses this as
+     `color-mix(in oklab, muted 50%, transparent)`; as a solid token it sits
+     between muted and line. Volt components reference it as `text-subtle`. */
+  --color-subtle: #a2a59b;
+  /* Row hover inside overlays — the design hovers list rows to the panel tint
+     (`.search-popup-item:hover`). */
+  --color-surface-hover: #f6f6f2;
+  /* Muted olive-grey the design uses for the second half of display wordmarks
+     (.hero-title-soft, .footer-word span, .pillar-word span). */
+  --color-ink-soft: oklch(0.72 0.015 120);
+
+  /* ── Status ─────────────────────────────────────────────────────
+     The design has no validation palette (its forms are mock-only), so error
+     reuses the deep badge red and success is a neutral green. Volt components
+     reference both. */
+  --color-error: oklch(0.5 0.19 25);
+  --color-error-soft: color-mix(in oklab, oklch(0.5 0.19 25) 12%, transparent);
+  --color-success: #2e8b57;
+
+  /* Overlay elevation — the design's own popup shadow (`.search-popup`). */
+  --shadow-dropdown: 0 12px 30px rgba(35, 38, 32, 0.12);
+
+  /* ── Type scale ─────────────────────────────────────────────────
+     xs/sm/base/lg match Tailwind's defaults; xl and up are larger in the
+     design, so they're overridden here (xl 1.375 vs Tailwind 1.25 etc.). */
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+
+  /* ── Radii ──────────────────────────────────────────────────────
+     The design is fully square (--radius: 0). Zeroing Tailwind's scale keeps
+     Volt components (which use rounded-md/lg) square without per-component edits. */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+
+  /* Design uses `ease` for every transition — align Tailwind's default so all
+     `transition*` utilities match without a per-element timing function. */
+  --default-transition-timing-function: ease;
+
+  /* Spacing: the design's --space-N are the same rem values as Tailwind's
+     4-based scale (space-4 = 1rem = `p-4`), so no overrides are needed. */
+
+  /* Brand-strip marquee: the track is rendered twice and slides a full width,
+     so the loop is seamless (design `@keyframes brandScroll`). */
+  --animate-brand-scroll: brand-scroll 32s linear infinite;
+  @keyframes brand-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+/* Layout constants — not utility-generating, kept as plain CSS variables. */
+:root {
+  /* Page gutter (design .container: 1rem, 60px from lg up). The container is
+     deliberately full-width — the design sets --maxw: none. */
+  --page-px: 1rem;
+  --announce-height: 44px;
+  /* Height of inputs and utility buttons (design .nav-search / .util-btn).
+     Volt components read it as `min-h-(--control-h)`. */
+  --control-h: 42px;
+  /* Nav height is driven by the logo, which grows with the viewport. */
+  --nav-height: 64px;
+  --t-fast: 0.15s ease;
+  --t-med: 0.22s ease;
+  --t-slow: 0.35s ease;
+
+  /* Button/CTA gradients (design --grad-accent + .btn-primary). Kept as vars:
+     Tailwind has no gradient token, and both are reused across sections. */
+  --grad-accent: linear-gradient(120deg, oklch(0.53 0.2 24), oklch(0.63 0.2 27));
+  --grad-btn: linear-gradient(90deg, oklch(0.52 0.2 23), oklch(0.6 0.21 26), oklch(0.66 0.2 28));
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page-px: 60px;
+    --nav-height: 72px;
+  }
+}
+
+@media (min-width: 1400px) {
+  :root {
+    --nav-height: 84px;
+  }
+}
