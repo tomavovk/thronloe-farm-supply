@@ -155,13 +155,18 @@ PrimeVue runs in `unstyled: true` mode. All styling comes from Volt components v
 - Edit Volt files directly in `app/shared/volt/` when customization is needed
 - Use the `#icon` slot with `<Icon>` on VoltButton — never the `icon="pi pi-*"` prop
 
-**Where the design styles a native control itself, port it natively.** The design
-draws its own `<select>` (accent border on hover), `<input type="checkbox">`
-(`accent-color`), search inputs and `.btn` family — swapping in Volt/PrimeVue
-equivalents would change both the look and the interaction model. So: native
-markup for those, `UiButton` for the `.btn` family, and Volt for the richer
-widgets the design doesn't hand-draw (dialogs, tables, datepickers, toasts) plus
-the auth/contact form fields.
+**Everything that can be a Volt component is one** — including the controls the
+design hand-draws natively (`<select>`, checkboxes, search inputs, the `.btn`
+family, the FAQ accordion). The wrapper carries the design's look; the design
+simply had no component library. If a needed Volt component is missing from
+`app/shared/volt/`, add it from upstream Volt and style it to the design rather
+than writing the control by hand.
+
+The one exception is icons: they come from the design's Streamline set through
+`<SlIcon>` / `<UiGlyph>`, not from a component library — see **Icons**.
+
+Carousels stay as the design's scroll-snap tracks (a deliberate call, not an
+oversight): `useCarousel` + `UiCarouselNav` / `UiCarouselProgress`.
 
 **NEVER:**
 
