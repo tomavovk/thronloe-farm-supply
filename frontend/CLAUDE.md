@@ -26,12 +26,12 @@ are Thornloe's own.
 
 Four gates, all green, and CI (`.github/workflows/ci.yml`) runs every one on push and PR:
 
-| Command | Owns |
-| --- | --- |
-| `npm run lint` / `lint:fix` | correctness + the Vue/TS rules (`@nuxt/eslint`) |
-| `npm run format` / `format:check` | formatting, all of it (Prettier) |
-| `npm run typecheck` | types — **0 errors, keep it that way** |
-| `npm test` | 55 unit tests |
+| Command                           | Owns                                            |
+| --------------------------------- | ----------------------------------------------- |
+| `npm run lint` / `lint:fix`       | correctness + the Vue/TS rules (`@nuxt/eslint`) |
+| `npm run format` / `format:check` | formatting, all of it (Prettier)                |
+| `npm run typecheck`               | types — **0 errors, keep it that way**          |
+| `npm test`                        | 55 unit tests                                   |
 
 The two linters have strictly separate jobs: ESLint runs with `stylistic: false` and its
 formatting-adjacent rules switched off, because every one of them fights Prettier
@@ -43,7 +43,7 @@ formatting opinions to `.prettierrc`, never to ESLint.
 `app/shared/volt/CLAUDE.md`.
 
 **`.prettierrc` keeps `htmlWhitespaceSensitivity: "css"`.** With `"ignore"` Prettier
-breaks inline content across lines freely, which *changes rendered text*: it turned
+breaks inline content across lines freely, which _changes rendered text_: it turned
 `<a>{{ phone }}</a>.` into a line break before the period, rendering "(705) 563-2555 .".
 
 ## Code Conventions
