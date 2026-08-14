@@ -53,7 +53,6 @@ export const CATEGORY_SECTIONS: CategorySection[] = [
     image: '/images/cat-tools-2.png',
     subs: [
       { name: 'New Equipment', image: '/images/cat-tools-2.png' },
-      { name: 'Used Equipment', image: '/images/rental-tractor.png' },
       { name: 'Loader Attachments', image: '/images/cat-tools.png' },
     ],
   },

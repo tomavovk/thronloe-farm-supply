@@ -2,7 +2,7 @@
   <div>
     <section class="pb-8">
       <div class="container-page">
-        <div class="max-w-[60ch] pb-4">
+        <div class="max-w-[60ch] pt-10 pb-4">
           <p
             class="border-line text-muted mb-6 inline-flex items-center gap-[7px] border bg-panel px-3 py-[5px] text-xs leading-[1.4] font-medium"
           >

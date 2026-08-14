@@ -35,7 +35,7 @@ export const SHOP_SECTIONS: ShopSection[] = [
   },
   {
     name: 'Equipment',
-    items: ['New Equipment', 'Used Equipment', 'Loader Attachments'],
+    items: ['New Equipment', 'Loader Attachments'],
   },
 ]
 

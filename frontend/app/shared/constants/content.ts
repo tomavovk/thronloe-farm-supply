@@ -199,13 +199,8 @@ export const ABOUT = {
     'From the feed counter to the service shop, we still work the floor alongside the crew — the same faces season after season. We take it personally: we live here, we farm here, and we stand behind every bag, part and tire that leaves the yard.',
   ],
   team: [
-    { name: 'Jordan Avery', role: 'Owner & Manager' },
-    { name: 'Sam Ellis', role: 'Feed & Nutrition Lead' },
-    { name: 'Casey Brant', role: 'Parts & Service Advisor' },
-    { name: 'Riley Coombs', role: 'Equipment Sales' },
-    { name: 'Morgan Teal', role: 'Shop Technician' },
-    { name: 'Alex Rennie', role: 'Delivery Driver' },
-    { name: 'Taylor Finn', role: 'Counter & Customer Service' },
+    { name: 'Brock & Miranda', image: '/images/team/brock-miranda.jpg' },
+    { name: 'Curvin & Amy', image: '/images/team/curvin-amy.jpg' },
   ],
   pillars: [
     {

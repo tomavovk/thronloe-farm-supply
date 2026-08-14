@@ -1165,59 +1165,6 @@ export const CATEGORY_DATA: Record<string, Category> = {
       },
     ],
   },
-  'Used Equipment': {
-    facetTitle: 'Equipment type',
-    items: [
-      {
-        name: 'Used Compact Tractor, 800 hrs',
-        price: 18500,
-        brand: 'Marweld',
-        stock: 'in-stock',
-        facet: 'Tractors',
-        image: '/images/service-tractor.png',
-      },
-      {
-        name: 'Used Round Baler',
-        price: 9800,
-        brand: 'Marweld',
-        stock: 'in-stock',
-        facet: 'Balers',
-        image: '/images/cat-trailer.png',
-      },
-      {
-        name: 'Used Utility Trailer, 12 ft',
-        price: 3100,
-        brand: 'Marweld',
-        stock: 'in-stock',
-        facet: 'Trailers',
-        image: '/images/cat-trailer.png',
-      },
-      {
-        name: 'Used Skid Steer, 1200 hrs',
-        price: 24500,
-        brand: 'Marweld',
-        stock: 'in-stock',
-        facet: 'Item',
-        image: '/images/rental-tractor.png',
-      },
-      {
-        name: 'Used Manure Spreader',
-        price: 6800,
-        brand: 'Marweld',
-        stock: 'in-stock',
-        facet: 'Item',
-        image: '/images/cat-trailer-2.png',
-      },
-      {
-        name: 'Used Zero-Turn Mower',
-        price: 3900,
-        brand: 'Marweld',
-        stock: 'in-stock',
-        facet: 'Item',
-        image: '/images/cat-tools-2.png',
-      },
-    ],
-  },
   'Loader Attachments': {
     facetTitle: 'Attachment type',
     items: [
@@ -1295,5 +1242,5 @@ export const CATEGORY_GROUPS: Record<string, string[]> = {
     'Heated Waterbowls',
   ],
   'Field & Yard': ['Chick Orders', 'Seed', 'Fencing & Gates'],
-  Equipment: ['New Equipment', 'Used Equipment', 'Loader Attachments'],
+  Equipment: ['New Equipment', 'Loader Attachments'],
 }

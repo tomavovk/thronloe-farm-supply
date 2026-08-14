@@ -33,37 +33,46 @@
           </h2>
         </div>
 
-        <div class="mb-16 grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
-          <div class="lg:col-span-6">
-            <div :class="[PLACEHOLDER, 'aspect-[4/3] text-[44px]']">
-              <SlIcon name="user-single-neutral-male" />
-            </div>
-          </div>
-          <div class="flex flex-col gap-4 lg:col-span-6">
-            <p
-              v-for="paragraph in about?.intro ?? []"
-              :key="paragraph"
-              class="text-muted max-w-[54ch] text-lg leading-[1.6]"
-            >
-              {{ paragraph }}
-            </p>
-          </div>
+        <div class="mb-12 aspect-[16/9] w-full overflow-hidden">
+          <NuxtImg
+            src="/images/team/matt-rhonda-family.jpg"
+            format="webp"
+            alt="Matt and Rhonda with their family outside the farm"
+            width="1800"
+            height="1013"
+            class="h-full w-full object-cover object-bottom"
+          />
         </div>
 
-        <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4 lg:gap-8">
-          <div
-            v-for="member in about?.team ?? []"
-            :key="member.name"
-            class="flex flex-col"
+        <div class="mx-auto mb-16 flex max-w-[64ch] flex-col gap-4 text-center">
+          <p
+            v-for="paragraph in about?.intro ?? []"
+            :key="paragraph"
+            class="text-muted text-lg leading-[1.6]"
           >
-            <div :class="[PLACEHOLDER, 'mb-4 aspect-square text-[38px]']">
-              <SlIcon name="user-single-neutral-male" />
+            {{ paragraph }}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6 lg:grid-cols-12 lg:gap-8">
+          <div
+            v-for="(member, i) in about?.team ?? []"
+            :key="member.name"
+            class="flex flex-col lg:col-span-3"
+            :class="i === 0 && 'lg:col-start-4'"
+          >
+            <div class="mb-4 aspect-[3/4] w-full overflow-hidden">
+              <NuxtImg
+                :src="member.image"
+                format="webp"
+                :alt="member.name"
+                width="320"
+                height="427"
+                class="h-full w-full object-cover object-center"
+              />
             </div>
-            <p class="mb-0.5 text-lg font-semibold tracking-[-0.01em]">
+            <p class="text-lg font-semibold tracking-[-0.01em]">
               {{ member.name }}
-            </p>
-            <p class="text-muted text-sm">
-              {{ member.role }}
             </p>
           </div>
         </div>
@@ -146,9 +155,6 @@ const CHIPS: HeroChip[] = [
     imageAlt: 'T-Post',
   },
 ]
-
-// Photos aren't shot yet; the design ships grey placeholder squares.
-const PLACEHOLDER = 'border-line flex items-center justify-center border bg-panel text-[#cfcec6]'
 
 useHead({ title: 'About Us' })
 useSeoMeta({

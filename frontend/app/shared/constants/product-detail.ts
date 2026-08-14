@@ -44,8 +44,6 @@ export const PDP_DESCRIPTIONS: Record<string, string> = {
     'Fencing that survives frost heave and livestock pressure — posts, high-tensile wire, gates and Gallagher energizers.',
   'New Equipment':
     'New implements and compact tractors, spec’d for small and mid-size farms. Delivery, setup and service handled out of our own shop.',
-  'Used Equipment':
-    'Shop-inspected used equipment, serviced before it leaves the yard. Hours and condition listed honestly.',
   'Loader Attachments':
     'Loader attachments built to farm-duty standards — buckets, forks and grapples that fit common skid steer and tractor mounts.',
 }

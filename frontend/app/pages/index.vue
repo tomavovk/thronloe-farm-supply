@@ -1,14 +1,6 @@
 <template>
   <div>
     <HomeHero />
-    <HomeCategoryTiles />
-
-    <HomeProductCarousel
-      title="Featured"
-      label="featured"
-      :products="featured"
-      :pending="featuredPending"
-    />
     <HomeProductCarousel
       title="Deals at the Yard"
       label="deals"
@@ -16,6 +8,14 @@
       variant="deal"
       :pending="dealsPending"
     />
+
+    <HomeProductCarousel
+      title="Featured"
+      label="featured"
+      :products="featured"
+      :pending="featuredPending"
+    />
+    <HomeCategoryTiles />
 
     <HomeAltBlock
       image="/images/home-about-image.jpg"
