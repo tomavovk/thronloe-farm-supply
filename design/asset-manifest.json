@@ -1,0 +1,303 @@
+{
+  "_note": "Porting aid, not a runtime asset: maps each resource key / assets path from the design HTML to the extracted file under frontend/public/images. `bytes` is the size as extracted, before the optimisation pass \u2014 do not treat it as current.",
+  "29ff01a9-9d24-4c29-98fe-cfcd842952ec": {
+    "file": "/images/rental-tractor.png",
+    "assetPath": "assets/rental-tractor.png",
+    "bytes": 6336212
+  },
+  "03ab0fe8-359e-4f3d-a9c1-bfe0a3f6c2bb": {
+    "file": "/images/img-03ab0fe8.jpg",
+    "assetPath": null,
+    "bytes": 326668
+  },
+  "39203e55-9813-4745-b90b-185a8344aa08": {
+    "file": "/images/tires-image.jpg",
+    "assetPath": null,
+    "bytes": 212910
+  },
+  "fbaf64d7-f217-49f0-8bca-5150ee20b3b5": {
+    "file": "/images/tires-item.png",
+    "assetPath": null,
+    "bytes": 325141
+  },
+  "9d5b2115-6328-40f4-a18a-b17d0a19b5f7": {
+    "file": "/images/service-brand-track.png",
+    "assetPath": null,
+    "bytes": 940
+  },
+  "75cee1cf-aef9-494a-a8a8-836dc4ef2252": {
+    "file": "/images/brand-marweld.png",
+    "assetPath": "assets/brand-marweld.png",
+    "bytes": 27256
+  },
+  "c44e0049-d1bf-42b1-9057-0323d68b32f1": {
+    "file": "/images/tpost.png",
+    "assetPath": "assets/tpost.png",
+    "bytes": 35347
+  },
+  "0c3cd181-4de9-4810-ad2c-f3b2b666b402": {
+    "file": "/images/service-brand-track-2.png",
+    "assetPath": null,
+    "bytes": 4984
+  },
+  "b45779e0-82f6-44c5-84c4-60fc42ec32e9": {
+    "file": "/images/tires-item-2.png",
+    "assetPath": null,
+    "bytes": 342029
+  },
+  "55ed913d-aa44-42bf-beeb-c5fcac4d02d0": {
+    "file": "/images/img-55ed913d.png",
+    "assetPath": null,
+    "bytes": 61377
+  },
+  "6d042420-9d93-48ee-8870-a1075fc93b6d": {
+    "file": "/images/brand-stockmans-choice.jpg",
+    "assetPath": "assets/brand-stockmans-choice.jpg",
+    "bytes": 58397
+  },
+  "9b3c2d15-0064-4f7f-a177-a2cc30adbc95": {
+    "file": "/images/cat-trailer-2.png",
+    "assetPath": "assets/cat-trailer-2.png",
+    "bytes": 174469
+  },
+  "7a2df08c-b1c3-432f-ad2a-8fe3e3e2a053": {
+    "file": "/images/cat-barn-frame-3.png",
+    "assetPath": "assets/cat-barn-frame-3.png",
+    "bytes": 115236
+  },
+  "2be0981f-b49f-4d2e-a121-cc9f619f50a0": {
+    "file": "/images/brand-osc.png",
+    "assetPath": "assets/brand-osc.png",
+    "bytes": 39828
+  },
+  "774fc59c-404e-4233-ab3b-0e5e8fafea71": {
+    "file": "/images/brand-gallagher.png",
+    "assetPath": "assets/brand-gallagher.png",
+    "bytes": 47008
+  },
+  "92180142-c918-4a24-84ae-ac8f9af7342a": {
+    "file": "/images/about-hero-image.jpg",
+    "assetPath": null,
+    "bytes": 340822
+  },
+  "f3b63bb1-698b-468d-96f1-55bed28d2ba3": {
+    "file": "/images/cat-chicks.png",
+    "assetPath": "assets/cat-chicks.png",
+    "bytes": 216697
+  },
+  "d84d8853-2a88-44b1-b66e-57cb2d8e0f3d": {
+    "file": "/images/img-d84d8853.jpg",
+    "assetPath": null,
+    "bytes": 79009
+  },
+  "45c44241-578d-4d45-a95c-abd65ebe452f": {
+    "file": "/images/cat-trailer.png",
+    "assetPath": "assets/cat-trailer.png",
+    "bytes": 243453
+  },
+  "17d97dd3-f9ae-422f-991a-210d2e20529d": {
+    "file": "/images/events-4-image.jpg",
+    "assetPath": null,
+    "bytes": 110231
+  },
+  "54e0ce0e-437d-482b-b5aa-d6450e978903": {
+    "file": "/images/service-brand-track-3.png",
+    "assetPath": null,
+    "bytes": 42394
+  },
+  "d13f4fbe-88f8-4c0b-9f4a-f7a6d96a668f": {
+    "file": "/images/home-about-image.jpg",
+    "assetPath": null,
+    "bytes": 182322
+  },
+  "bd868d78-70e1-4d2c-8322-3478a704fe33": {
+    "file": "/images/home-services-image.jpg",
+    "assetPath": null,
+    "bytes": 205606
+  },
+  "e9860159-b109-4afd-8020-17a2d1f1da5f": {
+    "file": "/images/service-image.jpg",
+    "assetPath": null,
+    "bytes": 465598
+  },
+  "a6021233-5c2f-4eb1-ae8a-93c2a21ea2ad": {
+    "file": "/images/tire-agricultural.png",
+    "assetPath": "assets/tire-agricultural.png",
+    "bytes": 217881
+  },
+  "2ff89949-7d0a-419e-b0a0-c5fa3bf88bc1": {
+    "file": "/images/cat-tools.png",
+    "assetPath": "assets/cat-tools.png",
+    "bytes": 196858
+  },
+  "43e291a9-c6e1-490d-a241-71e41f363283": {
+    "file": "/images/brand-kane.png",
+    "assetPath": "assets/brand-kane.png",
+    "bytes": 19542
+  },
+  "f1e4c7b7-9abe-4ecd-9e83-5c859fc86b6f": {
+    "file": "/images/cat-livestock-feed-2.png",
+    "assetPath": "assets/cat-livestock-feed-2.png",
+    "bytes": 182916
+  },
+  "b64bdb51-0a07-4ac0-bf63-c86c0f903394": {
+    "file": "/images/cat-barn.png",
+    "assetPath": "assets/cat-barn.png",
+    "bytes": 776806
+  },
+  "3ff6d086-5520-48e6-a860-ff3f586bb95d": {
+    "file": "/images/cat-tools-2.png",
+    "assetPath": "assets/cat-tools-2.png",
+    "bytes": 139715
+  },
+  "d011745d-44c9-44d3-ba6e-1b5105b9f035": {
+    "file": "/images/tires-brand-track.png",
+    "assetPath": null,
+    "bytes": 20167
+  },
+  "970f53d6-c937-4374-9818-b785757adc56": {
+    "file": "/images/service-tractor.png",
+    "assetPath": "assets/service-tractor.png",
+    "bytes": 104536
+  },
+  "df6d0f79-e19d-4e9b-95cb-513f59337ca1": {
+    "file": "/images/cat-garden.png",
+    "assetPath": "assets/cat-garden.png",
+    "bytes": 347270
+  },
+  "7702e6e3-67ae-4d79-9883-efa0370c7816": {
+    "file": "/images/home-categories-tile-8-art.png",
+    "assetPath": null,
+    "bytes": 1031580
+  },
+  "dd6f39c0-c6f1-4b7a-acb4-fd9f3067bbf7": {
+    "file": "/images/cat-pet.png",
+    "assetPath": "assets/cat-pet.png",
+    "bytes": 213607
+  },
+  "c371abe5-37cb-494d-b6fe-ebb690962def": {
+    "file": "/images/rentals-image.jpg",
+    "assetPath": null,
+    "bytes": 163028
+  },
+  "67ffac9c-a8a4-45b0-a8da-fe49ccf717d9": {
+    "file": "/images/brand-feathered-acres.png",
+    "assetPath": "assets/brand-feathered-acres.png",
+    "bytes": 49129
+  },
+  "03e7bfeb-6872-4c8b-96e8-c3a32bb3ae7c": {
+    "file": "/images/brand-semican.webp",
+    "assetPath": "assets/brand-semican.webp",
+    "bytes": 5762
+  },
+  "95d5acf8-8cc6-4145-937e-11533e0f6d51": {
+    "file": "/images/cat-barn-frame.png",
+    "assetPath": "assets/cat-barn-frame.png",
+    "bytes": 842032
+  },
+  "98139cf8-0362-4080-8343-04b3af940e5b": {
+    "file": "/images/brand-freys.png",
+    "assetPath": "assets/brand-freys.png",
+    "bytes": 139650
+  },
+  "f6b169a5-7c63-41b0-a7e1-20a0c4ef948e": {
+    "file": "/images/tires-item-3.png",
+    "assetPath": null,
+    "bytes": 211319
+  },
+  "8a44b317-8330-4a78-a883-e5bd4f30a0ec": {
+    "file": "/images/brand-martins.png",
+    "assetPath": "assets/brand-martins.png",
+    "bytes": 49463
+  },
+  "09dc0ed4-aea5-454f-a7dd-6ddf2b2263d9": {
+    "file": "/images/tires-brand-track-2.png",
+    "assetPath": null,
+    "bytes": 58373
+  },
+  "c92473f9-3cb4-46f6-b818-6b999b53eccf": {
+    "file": "/images/img-c92473f9.png",
+    "assetPath": null,
+    "bytes": 1006854
+  },
+  "94cece72-ba10-4e91-b006-352d58431b27": {
+    "file": "/images/tires-brand-track-3.png",
+    "assetPath": null,
+    "bytes": 193575
+  },
+  "9917127f-2de5-4ac1-8a7a-082d5c9ec861": {
+    "file": "/images/cat-fencing.png",
+    "assetPath": "assets/cat-fencing.png",
+    "bytes": 251034
+  },
+  "105a8b23-575b-4dc7-952d-ac998f665a90": {
+    "file": "/images/img-105a8b23.jpg",
+    "assetPath": null,
+    "bytes": 308821
+  },
+  "20e41533-e0ef-4bb0-9c4b-fa4287269bc3": {
+    "file": "/images/feed-bag.png",
+    "assetPath": "assets/feed-bag.png",
+    "bytes": 142602
+  },
+  "1289c23b-a0e2-4a3e-8f27-28cd2f2b04a4": {
+    "file": "/images/tires-brand-track-4.png",
+    "assetPath": null,
+    "bytes": 35165
+  },
+  "6be3e2d0-23d2-45bf-8c4e-c1cedac99950": {
+    "file": "/images/cat-garden-2.png",
+    "assetPath": "assets/cat-garden-2.png",
+    "bytes": 240230
+  },
+  "f2deff9b-46c8-48df-aaa9-f80fd6b6d1ff": {
+    "file": "/images/service-brand-track-4.png",
+    "assetPath": null,
+    "bytes": 15223
+  },
+  "24212a74-0aaf-46bd-a789-810ee93e022d": {
+    "file": "/images/service-brand-track-5.png",
+    "assetPath": null,
+    "bytes": 56178
+  },
+  "c4bcea6b-7ea8-407b-90ac-e63410494af1": {
+    "file": "/images/home-hero-image.jpg",
+    "assetPath": null,
+    "bytes": 690703
+  },
+  "1a50802c-1060-4592-b768-83f5afdb4725": {
+    "file": "/images/home-events-image.jpg",
+    "assetPath": null,
+    "bytes": 176405
+  },
+  "a18ecac5-46dd-4522-8ee2-dc3011695c9d": {
+    "file": "/images/cat-fencing-2.png",
+    "assetPath": "assets/cat-fencing-2.png",
+    "bytes": 176810
+  },
+  "brand-general-tire": {
+    "file": "/images/brand-general-tire.svg",
+    "assetPath": null,
+    "bytes": 10284
+  },
+  "brand-continental": {
+    "file": "/images/brand-continental.svg",
+    "assetPath": null,
+    "bytes": 3077
+  },
+  "brand-trelleborg": {
+    "file": "/images/brand-trelleborg.png",
+    "assetPath": null,
+    "bytes": 58752
+  },
+  "rental-price-list": {
+    "file": "/images/rental-price-list.jpg",
+    "assetPath": null,
+    "bytes": 474756
+  },
+  "logo-primary": {
+    "file": "/images/logo-primary.png",
+    "assetPath": null,
+    "bytes": 44560
+  }
+}

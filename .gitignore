@@ -1,3 +1,27 @@
-*
-!thornloe-farm-supply.html
-!.gitignore
+# Nuxt build output
+.nuxt/
+.output/
+.data/
+dist/
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+
+# Claude Code — personal
+.claude/settings.local.json
+CLAUDE.local.md

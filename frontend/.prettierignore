@@ -1,0 +1,11 @@
+.nuxt
+.output
+.data
+node_modules
+dist
+package-lock.json
+
+# Vendored from PrimeVue's Volt (4-space indent, semicolons — upstream's style).
+# Left as shipped so the files stay diffable against upstream; ESLint relaxes its
+# rules for the same directory, see eslint.config.mjs.
+app/shared/volt
