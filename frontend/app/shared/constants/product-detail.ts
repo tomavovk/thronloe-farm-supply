@@ -1,7 +1,8 @@
 import type { ProductOption } from '#shared/types/catalog'
 
-// GENERATED from design/thornloe-farm-supply.html (PDP_DESC / PDP_OPTS / PDP_PACK /
-// PDP_SIZE). Re-generate rather than hand-edit if the design's copy changes.
+// Originally generated from the static design's PDP_DESC / PDP_OPTS / PDP_PACK /
+// PDP_SIZE blobs (the design file is deleted; this is now the canonical copy —
+// edit it directly).
 
 /** A selectable variant and its price multiplier relative to the listed price. */
 

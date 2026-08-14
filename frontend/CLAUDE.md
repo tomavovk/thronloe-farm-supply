@@ -1,8 +1,10 @@
 # Thornloe Farm Supply — storefront
 
-Nuxt 4 port of the static design at `design/thornloe-farm-supply.html`. Conventions
-are shared with the NCS storefront (same house style); design-specific rules below
-are Thornloe's own.
+Nuxt 4 port of a static design (fully ported, the HTML file has been deleted — it
+survives in git history as `design/thornloe-farm-supply.html`). "The design" below
+refers to that visual system; **the app itself is now the source of UI truth**.
+Conventions are shared with the NCS storefront (same house style); design-specific
+rules below are Thornloe's own.
 
 > **It's a catalogue, not a store.** Cart, checkout and payments were deliberately
 > removed from the design (commit `014375c` in the design history): a PDP shows the
@@ -215,35 +217,32 @@ wrapper (rules in `base.css` — the multiplier is CSS, not per-icon markup):
   here, so `transition-*` utilities match without extra classes.
 - Never hardcode `cubic-bezier(...)` manually.
 
-## Design fidelity (porting from the static page)
+## Design fidelity (evolving the ported UI)
 
-`design/thornloe-farm-supply.html` is the source of UI truth.
+The port is complete and the app is the source of UI truth. New and changed UI
+extends the existing visual system rather than inventing a parallel one:
 
-- **Match the design exactly — read the real CSS, never approximate.** Open the actual
-  rule for the element you're porting (the design's single inline `<style>` block,
-  lines 9–1258) and reproduce its real values: size, weight, spacing, color, radius,
-  every state. Don't fill in a "sensible default" from memory: if you haven't read the
-  rule, you don't know it.
-- **Design fidelity beats personal taste** — _unless_ the discrepancy is a genuine slip
-  in the design itself (same component styled differently across views). Pixel-matching
-  a bug is not the goal.
+- **Match existing components exactly — read the real classes, never approximate.**
+  Before styling anything, open the closest existing component/page and reproduce
+  its real values: size, weight, spacing, color, every state. Don't fill in a
+  "sensible default" from memory: if you haven't read it, you don't know it.
+- **System consistency beats personal taste** — _unless_ the discrepancy is a genuine
+  slip (same component styled differently across pages). Pixel-matching a bug is not
+  the goal.
 - **On inconsistency, stop and surface it — don't pick silently.** Show the divergence
   and propose a resolution:
   - **Volt component** and the divergent styles recur **>1×** → propose a new **variant/prop**
   - **Non-Volt** and it recurs **>1×** → propose extracting a **custom component**
   - **One-off** → inline it, no abstraction
 - **Always design + verify mobile.** The design is **mobile-first** with `min-width`
-  media queries (`sm` 640 / `md` 768 / `lg` 1024 / `xl` 1280 / 1400) — port them as
-  Tailwind's mobile-first variants, and check gutters, font sizes, grid columns,
-  wrapping, overflow and tap targets at phone width.
+  media queries (`sm` 640 / `md` 768 / `lg` 1024 / `xl` 1280 / 1400) — use Tailwind's
+  mobile-first variants, and check gutters, font sizes, grid columns, wrapping,
+  overflow and tap targets at phone width.
 
 ### Assets
 
-Images were extracted out of the design's inline `window.__resources` map into
-`public/images/` (60 files); `../design/asset-manifest.json` maps each original resource
-key / `assets/…` path to its new `/images/…` URL. When you port a section, look up its
-image there rather than re-deriving it. The manifest lives with the design rather than
-in `public/` — it is a porting aid, not something to serve.
+All 60 design images live in `public/images/`, already optimized. Rules for adding
+or replacing images:
 
 - **Always `<NuxtImg>` with `format="webp"`.** IPX otherwise keeps the source format,
   and the design's cut-outs are PNGs: the same 600×600 product image is 500 KB as PNG

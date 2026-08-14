@@ -3,8 +3,8 @@
    (otherwise OS dark mode flips them — e.g. the primary button turns white). */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Design tokens, ported 1:1 from the `:root` block of
-   design/thornloe-farm-supply.html. Design name → token name:
+/* Design tokens, ported 1:1 from the static design's `:root` block (the design
+   file is deleted — these tokens are canonical now). Design name → token name:
      --color-bg / --color-surface  → --color-surface   (#fff)
      --color-surface-alt           → --color-panel
      --color-border                → --color-line

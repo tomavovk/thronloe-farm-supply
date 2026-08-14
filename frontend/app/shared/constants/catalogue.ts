@@ -1,7 +1,6 @@
-// GENERATED from design/thornloe-farm-supply.html (CATEGORY_DATA / CATEGORY_GROUPS).
-// The static design keeps its catalogue in a JS blob; this is the same data,
-// typed, with image paths pointing at the extracted files in public/images.
-// Re-generate rather than hand-edit if the design's data changes.
+// Originally generated from the static design's CATEGORY_DATA / CATEGORY_GROUPS
+// blobs (the design file is deleted; this is now the canonical catalogue — edit it
+// directly). Typed, with image paths pointing at the files in public/images.
 
 export type StockState = 'in-stock' | 'out-of-stock'
 

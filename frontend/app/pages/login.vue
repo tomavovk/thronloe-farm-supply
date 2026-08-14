@@ -21,7 +21,7 @@
             v-bind="emailAttrs"
             type="email"
             autocomplete="email"
-            placeholder="jane@example.com"
+            placeholder="admin@example.com"
             :class="{ 'p-invalid': errors.email }"
           />
         </UiFormField>
@@ -109,7 +109,7 @@ const [password, passwordAttrs] = defineField('password')
 const busy = ref(false)
 const failure = ref('')
 
-// Seeded credentials in the mock API: jane@example.com / farmsupply.
+// Seeded credentials in the mock API: admin@example.com / String1!
 const onSubmit = handleSubmit(async (values) => {
   busy.value = true
   failure.value = ''

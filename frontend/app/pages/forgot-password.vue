@@ -21,7 +21,7 @@
           v-bind="emailAttrs"
           type="email"
           autocomplete="email"
-          placeholder="jane@example.com"
+          placeholder="admin@example.com"
           :class="{ 'p-invalid': errors.email }"
         />
       </UiFormField>

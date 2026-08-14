@@ -31,9 +31,9 @@ interface State {
 
 const SEED_USER: MockUser = {
   id: 1,
-  // The design pre-fills the sign-in form with these.
-  email: 'jane@example.com',
-  password: 'farmsupply',
+  // Test credentials for the mock API — the sign-in form hints at these.
+  email: 'admin@example.com',
+  password: 'String1!',
   name: ACCOUNT_PROFILE.name,
   scope: ['ROLE_USER'],
 }

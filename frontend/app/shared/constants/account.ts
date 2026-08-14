@@ -1,8 +1,8 @@
 import type { ApiProfile } from '#shared/types/account'
 
-// GENERATED from design/thornloe-farm-supply.html (ORDERS / ACCOUNT).
-// Mock order history and profile defaults for the account screens — there is no
-// backend yet. Re-generate rather than hand-edit if the design's data changes.
+// Originally generated from the static design's ORDERS / ACCOUNT blobs (the design
+// file is deleted; this is now the canonical copy — edit it directly). Mock order
+// history and profile defaults for the account screens — there is no backend yet.
 
 /** Multi-line values (addresses) keep the design's \n separators as newlines. */
 export interface OrderLine {
@@ -179,7 +179,7 @@ export const TAX_RATE = 0.13
 export const ACCOUNT_PROFILE = {
   name: 'Jane Smith',
   farm: 'Smith Bros. Dairy',
-  email: 'jane@example.com',
+  email: 'admin@example.com',
   phone: '(705) 648-1120',
   bill_addr1: '482 Highway 11',
   bill_addr2: '',
