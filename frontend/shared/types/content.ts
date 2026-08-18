@@ -53,7 +53,8 @@ export interface InfoPageResponse {
 export interface AboutResponse {
   slug: 'about'
   intro: readonly string[]
-  team: readonly { name: string; image: string }[]
+  family: { name: string; image: string; imageAlt: string }
+  team: readonly { name: string; role: string; image: string }[]
   pillars: readonly { chip: string; icon: string; word: string; text: string }[]
 }
 

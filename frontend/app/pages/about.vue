@@ -33,16 +33,24 @@
           </h2>
         </div>
 
-        <div class="mb-12 aspect-[16/9] w-full overflow-hidden">
-          <NuxtImg
-            src="/images/team/matt-rhonda-family.jpg"
-            format="webp"
-            alt="Matt and Rhonda with their family outside the farm"
-            width="1800"
-            height="1013"
-            class="h-full w-full object-cover object-bottom"
-          />
-        </div>
+        <figure
+          v-if="about"
+          class="mb-12"
+        >
+          <div class="aspect-[16/9] w-full overflow-hidden">
+            <NuxtImg
+              :src="about.family.image"
+              format="webp"
+              :alt="about.family.imageAlt"
+              width="1800"
+              height="1013"
+              class="h-full w-full object-cover object-bottom"
+            />
+          </div>
+          <figcaption class="mt-4 text-center">
+            <TeamLabel :name="about.family.name" />
+          </figcaption>
+        </figure>
 
         <div class="mx-auto mb-16 flex max-w-[64ch] flex-col gap-4 text-center">
           <p
@@ -71,9 +79,10 @@
                 class="h-full w-full object-cover object-center"
               />
             </div>
-            <p class="text-lg font-semibold tracking-[-0.01em]">
-              {{ member.name }}
-            </p>
+            <TeamLabel
+              :name="member.name"
+              :role="member.role"
+            />
           </div>
         </div>
       </div>

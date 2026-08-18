@@ -198,9 +198,17 @@ export const ABOUT = {
     'Thornloe Farm Supply started as a family operation, and it still runs like one. We grew up loading feed, learning the equipment, and getting to know the farms around Thornloe by name.',
     'From the feed counter to the service shop, we still work the floor alongside the crew — the same faces season after season. We take it personally: we live here, we farm here, and we stand behind every bag, part and tire that leaves the yard.',
   ],
+  family: {
+    name: 'Matthew and Rhonda Martin’s Family',
+    image: '/images/team/matt-rhonda-family.jpg',
+    imageAlt: 'Matthew and Rhonda Martin with their family outside the farm',
+  },
+  // Both roles are placeholders: the client asked for the sub-heading slot before
+  // deciding what each one says. Replace them with the real titles one by one —
+  // they only read alike now, they aren't the same value.
   team: [
-    { name: 'Brock & Miranda', image: '/images/team/brock-miranda.jpg' },
-    { name: 'Curvin & Amy', image: '/images/team/curvin-amy.jpg' },
+    { name: 'Brock & Miranda', role: 'Job status', image: '/images/team/brock-miranda.jpg' },
+    { name: 'Curvin & Amy', role: 'Job status', image: '/images/team/curvin-amy.jpg' },
   ],
   pillars: [
     {
