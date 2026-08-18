@@ -192,7 +192,7 @@ export const INFO_PAGES: Record<'rentals' | 'services' | 'tires', InfoPage> = {
   },
 }
 
-/** About page: the family intro, the crew and the four trades. */
+/** About page: the family intro, the crew and the five trades. */
 export const ABOUT = {
   intro: [
     'Thornloe Farm Supply started as a family operation, and it still runs like one. We grew up loading feed, learning the equipment, and getting to know the farms around Thornloe by name.',
@@ -214,6 +214,12 @@ export const ABOUT = {
       icon: 'store-2',
       word: 'Sales',
       text: 'Equipment and loader attachments, sized to the job and quoted straight.',
+    },
+    {
+      chip: 'The Field',
+      icon: 'screwdriver-wrench',
+      word: 'Service',
+      text: 'On-farm service — grain handling, manure and feeding equipment, fixed where it stands.',
     },
     {
       chip: 'The Fleet',

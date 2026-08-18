@@ -84,21 +84,22 @@
       <div class="container-page">
         <div class="mb-12 grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:items-start lg:gap-12">
           <h2 class="text-2xl leading-[1.1] font-medium tracking-[-0.01em]">
-            Four trades,
+            Five trades,
             <span class="text-ink-soft block">one gate to drive through.</span>
           </h2>
           <p class="text-muted max-w-[52ch]">
             Most farms juggle a feed mill, a dealer and a mechanic. Here it’s one counter: feed
-            loaded the same day, equipment sold and set up, and a shop that keeps it turning — tires
-            included.
+            loaded the same day, equipment sold and set up, service that drives out to your yard,
+            and a shop that keeps it turning — tires included.
           </p>
         </div>
 
-        <div class="border-line grid grid-cols-1 border-t border-l md:grid-cols-2 lg:grid-cols-4">
+        <div class="border-line grid grid-cols-1 border-t border-l md:grid-cols-2 lg:grid-cols-6">
           <div
-            v-for="pillar in about?.pillars ?? []"
+            v-for="(pillar, i) in about?.pillars ?? []"
             :key="pillar.word"
-            class="border-line flex flex-col border-r border-b p-6 md:min-h-[320px] md:p-8 lg:min-h-[340px]"
+            class="border-line flex flex-col border-r border-b p-6 md:min-h-[320px] md:p-8 lg:col-span-2 lg:min-h-[340px]"
+            :class="isLastPillar(i) && 'md:col-span-2'"
           >
             <span
               class="border-line text-muted mb-12 inline-flex items-center gap-[7px] self-start border bg-panel px-2.5 py-1.5 text-xs font-medium tracking-[0.08em] uppercase"
@@ -140,6 +141,12 @@ const api = useApi()
 const { site } = useSite()
 
 const { data: about } = await useAsyncData('page-about', () => api<AboutResponse>('/pages/about'))
+
+// Five trades on a six-column track: three to a row, every card the same width, so
+// the second row stops two thirds across instead of stretching to fill. Down at two
+// columns the odd one out spans both, which keeps the hole out of the middle of the
+// bordered grid.
+const isLastPillar = (i: number) => i === (about.value?.pillars.length ?? 0) - 1
 
 const CHIPS: HeroChip[] = [
   {

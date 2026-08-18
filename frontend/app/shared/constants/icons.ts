@@ -13,6 +13,7 @@ export const DESIGN_ICONS = [
   'leaf',
   'magnifying-glass',
   'phone-ringing-1',
+  'screwdriver-wrench',
   'store-2',
   'transfer-truck-time',
   'user-single-neutral-male',
