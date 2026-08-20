@@ -44,8 +44,8 @@ export const PDP_DESCRIPTIONS: Record<string, string> = {
     'Fencing that survives frost heave and livestock pressure — posts, high-tensile wire, gates and Gallagher energizers.',
   'New Equipment':
     'New implements and compact tractors, spec’d for small and mid-size farms. Delivery, setup and service handled out of our own shop.',
-  'Loader Attachments':
-    'Loader attachments built to farm-duty standards — buckets, forks and grapples that fit common skid steer and tractor mounts.',
+  'Used Equipment':
+    'Shop-inspected used equipment, serviced before it leaves the yard. Hours and condition listed honestly.',
 }
 
 export const DEFAULT_DESCRIPTION =
@@ -73,11 +73,6 @@ export const PDP_OPTION_SETS: Record<string, ProductOption[]> = {
     { label: 'Standard', multiplier: 1 },
     { label: 'With loader', multiplier: 1.22 },
     { label: 'Cab package', multiplier: 1.38 },
-  ],
-  'Attachment type': [
-    { label: '72 in', multiplier: 1 },
-    { label: '84 in', multiplier: 1.18 },
-    { label: '96 in', multiplier: 1.34 },
   ],
 }
 
