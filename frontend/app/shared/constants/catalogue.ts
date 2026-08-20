@@ -1,6 +1,12 @@
+import type { RentalRate } from '#shared/types/catalog'
+import { RENTAL_CATEGORIES, RENTAL_CATEGORY_NAMES, RENTALS_SECTION } from './rentals'
+
 // Originally generated from the static design's CATEGORY_DATA / CATEGORY_GROUPS
 // blobs (the design file is deleted; this is now the canonical catalogue — edit it
 // directly). Typed, with image paths pointing at the files in public/images.
+//
+// The rental fleet lives in `rentals.ts` and is folded in below: rentals are
+// browsed as products like everything else, they are just priced by period.
 
 export type StockState = 'in-stock' | 'out-of-stock'
 
@@ -13,6 +19,8 @@ export interface CatalogueItem {
   /** Value on the category's facet axis (bag size, type, …). */
   facet: string
   image: string
+  /** Rental rate card; absent on everything the store sells outright. */
+  rates?: RentalRate[]
 }
 
 export interface Category {
@@ -1218,6 +1226,7 @@ export const CATEGORY_DATA: Record<string, Category> = {
       },
     ],
   },
+  ...RENTAL_CATEGORIES,
 }
 
 /** Top-level shop sections → the leaf categories they contain. */
@@ -1235,4 +1244,5 @@ export const CATEGORY_GROUPS: Record<string, string[]> = {
   ],
   'Field & Yard': ['Chick Orders', 'Seed', 'Fencing & Gates'],
   Equipment: ['New Equipment', 'Used Equipment'],
+  [RENTALS_SECTION]: RENTAL_CATEGORY_NAMES,
 }

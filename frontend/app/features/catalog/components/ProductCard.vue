@@ -46,10 +46,16 @@
       class="text-ink mb-4 text-[18px] font-semibold"
     >
       {{ formatPrice(product.price) }}
+      <span
+        v-if="rental"
+        class="text-muted text-sm font-normal"
+      >
+        per day
+      </span>
     </p>
 
     <p
-      v-if="showStock && product.qty > 0"
+      v-if="showStock && !rental && product.qty > 0"
       class="-mt-2 mb-3 text-xs"
       :class="product.qty <= 5 ? 'text-badge font-semibold' : 'text-muted'"
     >
@@ -92,6 +98,10 @@ const BADGE_BG: Record<BadgeKind, string> = {
   new: 'bg-ink',
   out: 'bg-muted',
 }
+
+// Rentals carry a rate card instead of one price, so the card headlines the day
+// rate and leaves the stock count to the machines the store actually sells.
+const rental = computed(() => isRental(props.product))
 
 const to = computed(() => `/product/${props.product.id}`)
 const wasPrice = computed(() => props.product.price * SALE_MARKUP)

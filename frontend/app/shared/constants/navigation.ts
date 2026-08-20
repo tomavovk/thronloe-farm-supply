@@ -1,3 +1,5 @@
+import { RENTAL_CATEGORY_NAMES, RENTALS_SECTION } from './rentals'
+
 // Navigation model. The design duplicates this tree in three places (desktop
 // mega panel, mobile accordion, footer columns); here it is declared once.
 
@@ -37,13 +39,19 @@ export const SHOP_SECTIONS: ShopSection[] = [
     name: 'Equipment',
     items: ['New Equipment', 'Used Equipment'],
   },
+  {
+    name: RENTALS_SECTION,
+    items: RENTAL_CATEGORY_NAMES,
+  },
 ]
 
-// Route for a whole shop section ("See all feed").
-export const shopSectionRoute = (section: string) => ({
-  path: '/shop',
-  query: { category: section },
-})
+/** Rentals get a landing page of their own rather than a /shop listing. */
+export const RENTALS_PATH = '/rentals'
+
+// Route for a whole shop section ("See all feed"), as a path so the footer's link
+// list and the router links can share one helper.
+export const shopSectionRoute = (section: string): string =>
+  section === RENTALS_SECTION ? RENTALS_PATH : `/shop?category=${encodeURIComponent(section)}`
 
 // Route for one item inside a section. These links are inert in the static
 // design (`onclick="return false"`), so the item rides along as `sub` for the
@@ -56,7 +64,7 @@ export const shopItemRoute = (section: string, item: string) => ({
 // Primary nav, after the Shop mega-menu trigger.
 export const MAIN_NAV: NavLink[] = [
   { label: 'Services', to: '/services' },
-  { label: 'Rentals', to: '/rentals' },
+  { label: RENTALS_SECTION, to: RENTALS_PATH },
   { label: 'Tires', to: '/tires' },
   { label: 'Events', to: '/events' },
   { label: 'About', to: '/about' },
@@ -68,17 +76,13 @@ export const FOOTER_COLUMNS: { title: string; links: NavLink[] }[] = [
     title: 'Store',
     links: [
       { label: 'All Categories', to: '/categories' },
-      ...SHOP_SECTIONS.map((s) => ({
-        label: s.name,
-        to: `/shop?category=${encodeURIComponent(s.name)}`,
-      })),
+      ...SHOP_SECTIONS.map((s) => ({ label: s.name, to: shopSectionRoute(s.name) })),
     ],
   },
   {
     title: 'Services',
     links: [
       { label: 'Service', to: '/services' },
-      { label: 'Rentals', to: '/rentals' },
       { label: 'Tires', to: '/tires' },
     ],
   },

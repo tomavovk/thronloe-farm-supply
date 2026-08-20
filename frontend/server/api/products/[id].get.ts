@@ -3,6 +3,7 @@ import { toApiProduct } from '../../utils/mock-catalogue'
 import { DEFAULT_DESCRIPTION, PDP_DESCRIPTIONS } from '~/shared/constants/product-detail'
 import {
   findProduct,
+  isRental,
   parentSection,
   productGallery,
   productOptions,
@@ -18,14 +19,15 @@ export default defineEventHandler((event): ProductDetailResponse => {
     throw createError({ statusCode: 404, statusMessage: 'Not Found', message: 'Product not found' })
   }
 
-  const { title, options } = productOptions(product)
+  // Rentals are priced by period, so they get no size/pack picker.
+  const variants = isRental(product) ? null : productOptions(product)
 
   return {
     ...toApiProduct(product),
     section: parentSection(product.category),
     description: PDP_DESCRIPTIONS[product.category] ?? DEFAULT_DESCRIPTION,
     gallery: productGallery(product),
-    options: { title, values: options },
+    options: variants && { title: variants.title, values: variants.options },
     related: relatedProducts(product).map(toApiProduct),
   }
 })

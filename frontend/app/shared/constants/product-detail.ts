@@ -46,6 +46,25 @@ export const PDP_DESCRIPTIONS: Record<string, string> = {
     'New implements and compact tractors, spec’d for small and mid-size farms. Delivery, setup and service handled out of our own shop.',
   'Used Equipment':
     'Shop-inspected used equipment, serviced before it leaves the yard. Hours and condition listed honestly.',
+  'Lawn & Garden':
+    'Tractors, tillers and yard implements rented by the half day, the weekend or the month. Everything is serviced between jobs and comes ready to hook up.',
+  Trailers:
+    'Utility, dump and car hauler trailers for the loads a pickup box won’t take. Tell us your hitch and ball size when you book.',
+  'Concrete Equipment':
+    'Saws, trowels, screeds and breakers for a pour or a tear-out. Blades and consumables are billed separately.',
+  Compactors:
+    'Rammers and plate packers for backfill, driveways and pads — gas for trench work, diesel for full lots.',
+  'Post Drivers':
+    'Montana post pounder with the concrete breaker attachment: fence line one week, demolition the next.',
+  Pumps: 'Trash pumps for a flooded basement, a pit or a dugout. Hose comes with the submersible.',
+  Heaters:
+    'Diesel heaters that hold a shop, a barn or a fresh slab above freezing. Hoses and thermostat included, fuel is on you.',
+  'Mini Skid Steers':
+    'Boxer stand-on track machine for tight yards and gateways a full-size skid steer won’t clear.',
+  Miscellaneous:
+    'The odd jobs — sandblasting and PTO vacuum work. Book ahead, there is one of each.',
+  'Event Tents':
+    'Tents for weddings, auctions and family gatherings, with or without sides. Set-up and take-down are included, and every day after the first is billed at the lower rate.',
 }
 
 export const DEFAULT_DESCRIPTION =

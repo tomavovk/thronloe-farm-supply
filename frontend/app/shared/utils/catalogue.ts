@@ -1,3 +1,4 @@
+import type { RentalRate } from '#shared/types/catalog'
 import { CATEGORY_DATA, CATEGORY_GROUPS, type CatalogueItem } from '~/shared/constants/catalogue'
 import {
   PDP_BULK_OPTIONS,
@@ -18,6 +19,14 @@ export interface Product extends CatalogueItem {
   /** Leaf category the product belongs to. */
   category: string
 }
+
+/**
+ * Rentals carry a rate card instead of a single price. They are booked by phone
+ * and there is one of each machine, so the badge and stock rules below skip them.
+ * Typed on the field rather than on `Product` so the client's `ApiProduct` passes too.
+ */
+export const isRental = (product: { rates?: RentalRate[] }): boolean =>
+  Boolean(product.rates?.length)
 
 export type BadgeKind = 'out' | 'sale' | 'new'
 
@@ -79,6 +88,10 @@ const hash = (value: string): number => {
 }
 
 export const productBadge = (product: Product): ProductBadge | null => {
+  if (isRental(product)) {
+    return null
+  }
+
   const h = hash(product.id + product.name)
 
   if (h % 17 === 0) {
@@ -101,6 +114,10 @@ export const productStockState = (product: Product) =>
 
 /** Units on hand: 0 when the product carries the out-of-stock badge, else 3–48. */
 export const productQty = (product: Product): number => {
+  if (isRental(product)) {
+    return 1
+  }
+
   if (productBadge(product)?.kind === 'out') {
     return 0
   }
@@ -169,6 +186,12 @@ export const productOptions = (product: Product): { title: string; options: Prod
 /** Up to four photos: the product's own, then its siblings' (design: productGallery). */
 export const productGallery = (product: Product): string[] => {
   const images = [product.image]
+
+  // A rental is one specific machine, so it shows its own photo and nothing else —
+  // borrowing a sibling's would put another machine on the page.
+  if (isRental(product)) {
+    return images
+  }
 
   for (const item of CATEGORY_DATA[product.category]?.items ?? []) {
     if (images.length < 4 && !images.includes(item.image)) {

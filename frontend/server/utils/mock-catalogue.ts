@@ -21,6 +21,7 @@ export const toApiProduct = (product: Product): ApiProduct => ({
   price: product.price,
   image: product.image,
   qty: productQty(product),
+  rates: product.rates ?? [],
   stock: productStockState(product),
   badge: productBadge(product),
 })
