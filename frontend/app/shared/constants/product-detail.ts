@@ -44,8 +44,27 @@ export const PDP_DESCRIPTIONS: Record<string, string> = {
     'Fencing that survives frost heave and livestock pressure — posts, high-tensile wire, gates and Gallagher energizers.',
   'New Equipment':
     'New implements and compact tractors, spec’d for small and mid-size farms. Delivery, setup and service handled out of our own shop.',
-  'Loader Attachments':
-    'Loader attachments built to farm-duty standards — buckets, forks and grapples that fit common skid steer and tractor mounts.',
+  'Used Equipment':
+    'Shop-inspected used equipment, serviced before it leaves the yard. Hours and condition listed honestly.',
+  'Lawn & Garden':
+    'Tractors, tillers and yard implements rented by the half day, the weekend or the month. Everything is serviced between jobs and comes ready to hook up.',
+  Trailers:
+    'Utility, dump and car hauler trailers for the loads a pickup box won’t take. Tell us your hitch and ball size when you book.',
+  'Concrete Equipment':
+    'Saws, trowels, screeds and breakers for a pour or a tear-out. Blades and consumables are billed separately.',
+  Compactors:
+    'Rammers and plate packers for backfill, driveways and pads — gas for trench work, diesel for full lots.',
+  'Post Drivers':
+    'Montana post pounder with the concrete breaker attachment: fence line one week, demolition the next.',
+  Pumps: 'Trash pumps for a flooded basement, a pit or a dugout. Hose comes with the submersible.',
+  Heaters:
+    'Diesel heaters that hold a shop, a barn or a fresh slab above freezing. Hoses and thermostat included, fuel is on you.',
+  'Mini Skid Steers':
+    'Boxer stand-on track machine for tight yards and gateways a full-size skid steer won’t clear.',
+  Miscellaneous:
+    'The odd jobs — sandblasting and PTO vacuum work. Book ahead, there is one of each.',
+  'Event Tents':
+    'Tents for weddings, auctions and family gatherings, with or without sides. Set-up and take-down are included, and every day after the first is billed at the lower rate.',
 }
 
 export const DEFAULT_DESCRIPTION =
@@ -73,11 +92,6 @@ export const PDP_OPTION_SETS: Record<string, ProductOption[]> = {
     { label: 'Standard', multiplier: 1 },
     { label: 'With loader', multiplier: 1.22 },
     { label: 'Cab package', multiplier: 1.38 },
-  ],
-  'Attachment type': [
-    { label: '72 in', multiplier: 1 },
-    { label: '84 in', multiplier: 1.18 },
-    { label: '96 in', multiplier: 1.34 },
   ],
 }
 

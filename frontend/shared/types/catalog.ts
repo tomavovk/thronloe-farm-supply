@@ -19,6 +19,18 @@ export interface ProductOption {
   multiplier: number
 }
 
+/**
+ * A period from the store's rental price list. Tents are quoted as a first day
+ * plus each day after it, so they use 'Full day' and 'Additional day' only.
+ */
+export type RentalPeriod =
+  'Half day' | 'Full day' | 'Weekend' | 'Weekly' | 'Monthly' | 'Additional day'
+
+export interface RentalRate {
+  period: RentalPeriod
+  price: number
+}
+
 export interface ApiProduct {
   id: string
   name: string
@@ -29,6 +41,12 @@ export interface ApiProduct {
   image: string
   /** Units on hand; 0 when the product carries the out-of-stock badge. */
   qty: number
+  /**
+   * Rate card for rental machines, empty for everything sold outright. The store's
+   * till carries one SKU per period; the site keeps one product per machine and
+   * prices it by the row instead.
+   */
+  rates: RentalRate[]
   stock: 'in-stock' | 'out-of-stock'
   badge: ApiBadge | null
 }
@@ -52,7 +70,8 @@ export interface ProductDetailResponse extends ApiProduct {
   section: string
   description: string
   gallery: string[]
-  options: { title: string; values: ProductOption[] }
+  /** Variant picker — null on rentals, which are priced by period, not by size. */
+  options: { title: string; values: ProductOption[] } | null
   related: ApiProduct[]
 }
 

@@ -151,6 +151,6 @@ useSeoMeta({
   description: () =>
     sectionName.value
       ? `${sectionName.value} at Thornloe Farm Supply — browse the categories in this section.`
-      : 'Browse every category at Thornloe Farm Supply — feed, farm supply, field & yard and equipment.',
+      : 'Browse every category at Thornloe Farm Supply — feed, farm supply, field & yard, equipment and rentals.',
 })
 </script>

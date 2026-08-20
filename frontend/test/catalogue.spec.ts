@@ -1,10 +1,12 @@
 import { describe, expect, it } from 'vitest'
 import { CATEGORY_DATA, CATEGORY_GROUPS } from '~/shared/constants/catalogue'
+import { RENTAL_CATEGORY_NAMES, RENTALS_SECTION } from '~/shared/constants/rentals'
 import {
   allProducts,
   categoryFacetTitle,
   categoryProducts,
   formatPrice,
+  isRental,
   productBadge,
   productQty,
   productStockState,
@@ -67,7 +69,7 @@ describe('badges and stock', () => {
   })
 
   it('out-of-stock products report zero quantity, others 3–48', () => {
-    for (const product of allProducts()) {
+    for (const product of allProducts().filter((p) => !isRental(p))) {
       const qty = productQty(product)
 
       if (productBadge(product)?.kind === 'out') {
@@ -79,6 +81,44 @@ describe('badges and stock', () => {
       expect(qty).toBeGreaterThanOrEqual(3)
       expect(qty).toBeLessThanOrEqual(48)
       expect(productStockState(product)).toBe('in-stock')
+    }
+  })
+})
+
+// Rentals share the catalogue's plumbing but not its pricing or its stock rules:
+// one product per machine, a rate per period, and no Sale/New/Out badges.
+describe('rentals', () => {
+  const rentals = categoryProducts(RENTALS_SECTION)
+
+  it('cover every rental category and nothing else', () => {
+    expect(new Set(rentals.map((p) => p.category))).toEqual(new Set(RENTAL_CATEGORY_NAMES))
+    expect(rentals.every(isRental)).toBe(true)
+    expect(allProducts().filter(isRental)).toHaveLength(rentals.length)
+  })
+
+  it('headline the full-day rate', () => {
+    for (const rental of rentals) {
+      const fullDay = rental.rates?.find((rate) => rate.period === 'Full day')
+
+      expect(fullDay?.price).toBe(rental.price)
+    }
+  })
+
+  it('skip the badge and stock machinery', () => {
+    for (const rental of rentals) {
+      expect(productBadge(rental)).toBeNull()
+      expect(productQty(rental)).toBe(1)
+      expect(productStockState(rental)).toBe('in-stock')
+    }
+  })
+
+  it('price tents by the first day plus each day after it', () => {
+    const tents = categoryProducts('Event Tents')
+
+    expect(tents.length).toBeGreaterThan(0)
+
+    for (const tent of tents) {
+      expect(tent.rates?.map((rate) => rate.period)).toEqual(['Full day', 'Additional day'])
     }
   })
 })

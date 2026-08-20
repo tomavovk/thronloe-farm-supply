@@ -106,7 +106,7 @@ export const FAQ_SETS: Record<'home' | 'contact', FaqItem[]> = {
     {
       question: 'Do you service equipment and sell tires?',
       answer:
-        'We handle equipment sales and service, loader attachments, rentals and tires. Call the counter to book a slot.',
+        'We handle new and used equipment sales and service, rentals and tires. Call the counter to book a slot.',
     },
     {
       question: 'How do I pay?',

@@ -59,17 +59,19 @@
                 {{ description }}
               </p>
 
-              <h4 class="text-ink mb-3 text-xs font-semibold tracking-[0.08em] uppercase">
-                {{ options.title }}
-              </h4>
-              <VoltSelectButton
-                v-model="selectedOption"
-                :options="options.values"
-                option-label="label"
-                :allow-empty="false"
-                :aria-label="options.title"
-                class="mb-8"
-              />
+              <template v-if="options">
+                <h4 class="text-ink mb-3 text-xs font-semibold tracking-[0.08em] uppercase">
+                  {{ options.title }}
+                </h4>
+                <VoltSelectButton
+                  v-model="selectedOption"
+                  :options="options.values"
+                  option-label="label"
+                  :allow-empty="false"
+                  :aria-label="options.title"
+                  class="mb-8"
+                />
+              </template>
 
               <div class="mb-2 flex items-baseline gap-3">
                 <span class="text-[32px] font-semibold tracking-[-0.02em]">
@@ -81,9 +83,41 @@
                 >
                   {{ formatPrice(price * SALE_MARKUP) }}
                 </span>
+                <span
+                  v-if="rates.length"
+                  class="text-muted text-base"
+                >
+                  per full day
+                </span>
               </div>
 
+              <!-- The machine's row from the store's price list. Their till carries a
+                   separate SKU per period; here it is one product priced by the row. -->
+              <dl
+                v-if="rates.length"
+                class="border-line mt-4 mb-6 border-t"
+              >
+                <div
+                  v-for="rate in rates"
+                  :key="rate.period"
+                  class="border-line flex items-baseline justify-between gap-4 border-b py-2.5"
+                >
+                  <dt class="text-muted text-sm">{{ rate.period }}</dt>
+                  <dd class="text-ink text-base font-semibold tabular-nums">
+                    {{ formatPrice(rate.price) }}
+                  </dd>
+                </div>
+              </dl>
+
               <p
+                v-if="rates.length"
+                class="text-muted mb-6 flex items-center gap-2 text-sm"
+              >
+                <SlIcon name="calendar-mark" />
+                Availability changes daily — call the yard to check this one is free.
+              </p>
+              <p
+                v-else
                 class="mb-6 flex items-center gap-2 text-sm"
                 :class="lowStock ? 'text-badge font-semibold' : 'text-muted'"
               >
@@ -163,7 +197,7 @@
                       />
                     </svg>
                   </span>
-                  Friday delivery — Matheson 1st &amp; 3rd, local 2nd &amp; 4th
+                  {{ deliveryNote }}
                 </span>
                 <span class="flex items-center gap-2">
                   <span
@@ -197,7 +231,7 @@
               :to="shopSectionRoute(section)"
               severity="secondary"
             >
-              Back to shop
+              {{ rates.length ? 'Back to rentals' : 'Back to shop' }}
               <UiGlyph
                 name="arrow-right"
                 class="text-[16px]"
@@ -231,6 +265,7 @@
 import { breadcrumbSchema, productSchema } from '~/shared/utils/schema'
 import type { ProductDetailResponse } from '#shared/types/catalog'
 import { shopSectionRoute } from '~/shared/constants/navigation'
+import { RENTAL_DELIVERY_NOTE } from '~/shared/constants/rentals'
 
 const api = useApi()
 const { site } = useSite()
@@ -258,17 +293,25 @@ const section = computed(() => product.value.section)
 const images = computed(() => product.value.gallery)
 const badge = computed(() => product.value.badge)
 const options = computed(() => product.value.options)
+const rates = computed(() => product.value.rates)
 const related = computed(() => product.value.related)
 const description = computed(() => product.value.description)
 
 // Start on the option matching the product's own facet, so the price shown equals
 // the listing price (design: openPDP).
 const optionFor = (detail: ProductDetailResponse) =>
-  detail.options.values.find((option) => option.label === detail.facet) ?? detail.options.values[0]
+  detail.options?.values.find((option) => option.label === detail.facet) ??
+  detail.options?.values[0]
 
 const selectedOption = ref(optionFor(product.value))
 
 const price = computed(() => product.value.price * (selectedOption.value?.multiplier ?? 1))
+
+const deliveryNote = computed(() =>
+  rates.value.length
+    ? RENTAL_DELIVERY_NOTE
+    : 'Friday delivery — Matheson 1st & 3rd, local 2nd & 4th',
+)
 
 const qty = computed(() => product.value.qty)
 const outOfStock = computed(() => badge.value?.kind === 'out')

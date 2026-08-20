@@ -4,7 +4,7 @@
       <h4 :class="GROUP_TITLE">Sort by</h4>
       <VoltSelect
         v-model="sort"
-        :options="[...SORT_OPTIONS]"
+        :options="[...sortOptions]"
         option-label="label"
         option-value="value"
         aria-label="Sort products"
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div>
+    <div v-if="showAvailability">
       <h4 :class="GROUP_TITLE">Availability</h4>
       <div :class="LIST">
         <label :class="ROW">
@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <div>
+    <div v-if="facetOptions.length">
       <h4 :class="GROUP_TITLE">
         {{ facetTitle }}
       </h4>
@@ -63,20 +63,26 @@
 </template>
 
 <script setup lang="ts">
-import { SORT_OPTIONS, type ShopSort } from '~/shared/constants/shop'
+import type { ShopSort } from '~/shared/constants/shop'
 
-// The four filter groups, shared by the desktop sidebar and the mobile drawer so
-// the controls exist once. Checkboxes stay wrapped in a <label>: PrimeVue binds
+// The filter groups, shared by the desktop sidebar and the mobile drawer so the
+// controls exist once. Checkboxes stay wrapped in a <label>: PrimeVue binds
 // onChange to the hidden input, so the label is what makes the box clickable.
+//
+// `sortOptions` and `showAvailability` vary by listing — the rentals fleet sorts by
+// day rate and has no inventory to filter on — so ShopFilters owns their defaults
+// and always passes them down.
 defineProps<{
   brandOptions: string[]
   facetOptions: string[]
   facetTitle: string
+  sortOptions: readonly { value: ShopSort; label: string }[]
+  showAvailability: boolean
 }>()
 
 const sort = defineModel<ShopSort>('sort', { required: true })
 const brands = defineModel<string[]>('brands', { required: true })
-const stock = defineModel<string[]>('stock', { required: true })
+const stock = defineModel<string[]>('stock', { required: false, default: () => [] })
 const facets = defineModel<string[]>('facets', { required: true })
 
 const GROUP_TITLE = 'text-ink mb-3 text-xs font-semibold tracking-[0.08em] uppercase'

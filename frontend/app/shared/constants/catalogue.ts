@@ -1,6 +1,12 @@
+import type { RentalRate } from '#shared/types/catalog'
+import { RENTAL_CATEGORIES, RENTAL_CATEGORY_NAMES, RENTALS_SECTION } from './rentals'
+
 // Originally generated from the static design's CATEGORY_DATA / CATEGORY_GROUPS
 // blobs (the design file is deleted; this is now the canonical catalogue — edit it
 // directly). Typed, with image paths pointing at the files in public/images.
+//
+// The rental fleet lives in `rentals.ts` and is folded in below: rentals are
+// browsed as products like everything else, they are just priced by period.
 
 export type StockState = 'in-stock' | 'out-of-stock'
 
@@ -13,6 +19,8 @@ export interface CatalogueItem {
   /** Value on the category's facet axis (bag size, type, …). */
   facet: string
   image: string
+  /** Rental rate card; absent on everything the store sells outright. */
+  rates?: RentalRate[]
 }
 
 export interface Category {
@@ -1165,67 +1173,60 @@ export const CATEGORY_DATA: Record<string, Category> = {
       },
     ],
   },
-  'Loader Attachments': {
-    facetTitle: 'Attachment type',
+  'Used Equipment': {
+    facetTitle: 'Equipment type',
     items: [
       {
-        name: 'Loader Bucket, 72 in',
-        price: 1450,
+        name: 'Used Compact Tractor, 800 hrs',
+        price: 18500,
         brand: 'Marweld',
         stock: 'in-stock',
-        facet: 'Buckets',
-        image: '/images/cat-tools.png',
+        facet: 'Tractors',
+        image: '/images/service-tractor.png',
       },
       {
-        name: 'Pallet Fork Attachment',
-        price: 980,
+        name: 'Used Round Baler',
+        price: 9800,
         brand: 'Marweld',
         stock: 'in-stock',
-        facet: 'Forks',
-        image: '/images/cat-trailer-2.png',
-      },
-      {
-        name: 'Bale Grapple Attachment',
-        price: 1980,
-        brand: 'Marweld',
-        stock: 'in-stock',
-        facet: 'Grapples',
-        image: '/images/cat-tools-2.png',
-      },
-      {
-        name: 'Snow Blade, 84 in',
-        price: 1290,
-        brand: 'Marweld',
-        stock: 'in-stock',
-        facet: 'Blades',
+        facet: 'Balers',
         image: '/images/cat-trailer.png',
       },
       {
-        name: 'Auger Attachment, 12 in',
-        price: 1650,
+        name: 'Used Utility Trailer, 12 ft',
+        price: 3100,
+        brand: 'Marweld',
+        stock: 'in-stock',
+        facet: 'Trailers',
+        image: '/images/cat-trailer.png',
+      },
+      {
+        name: 'Used Skid Steer, 1200 hrs',
+        price: 24500,
         brand: 'Marweld',
         stock: 'in-stock',
         facet: 'Item',
-        image: '/images/cat-tools.png',
+        image: '/images/rental-tractor.png',
       },
       {
-        name: 'Trencher Attachment',
-        price: 3200,
+        name: 'Used Manure Spreader',
+        price: 6800,
         brand: 'Marweld',
         stock: 'in-stock',
         facet: 'Item',
         image: '/images/cat-trailer-2.png',
       },
       {
-        name: 'Pallet Fork Attachment',
-        price: 1450,
+        name: 'Used Zero-Turn Mower',
+        price: 3900,
         brand: 'Marweld',
         stock: 'in-stock',
         facet: 'Item',
-        image: '/images/cat-tools.png',
+        image: '/images/cat-tools-2.png',
       },
     ],
   },
+  ...RENTAL_CATEGORIES,
 }
 
 /** Top-level shop sections → the leaf categories they contain. */
@@ -1242,5 +1243,6 @@ export const CATEGORY_GROUPS: Record<string, string[]> = {
     'Heated Waterbowls',
   ],
   'Field & Yard': ['Chick Orders', 'Seed', 'Fencing & Gates'],
-  Equipment: ['New Equipment', 'Loader Attachments'],
+  Equipment: ['New Equipment', 'Used Equipment'],
+  [RENTALS_SECTION]: RENTAL_CATEGORY_NAMES,
 }

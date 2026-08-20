@@ -1,3 +1,5 @@
+import { RENTALS_SECTION } from './rentals'
+
 // Category browsing tree with artwork (design CATEGORY_SECTIONS). Separate from
 // `navigation.ts`, which carries the same names without images: the nav menus are
 // text-only, the /categories page is a card grid.
@@ -53,7 +55,23 @@ export const CATEGORY_SECTIONS: CategorySection[] = [
     image: '/images/cat-tools-2.png',
     subs: [
       { name: 'New Equipment', image: '/images/cat-tools-2.png' },
-      { name: 'Loader Attachments', image: '/images/cat-tools.png' },
+      { name: 'Used Equipment', image: '/images/service-tractor.png' },
+    ],
+  },
+  {
+    name: RENTALS_SECTION,
+    image: '/images/rental-tractor.png',
+    subs: [
+      { name: 'Lawn & Garden', image: '/images/rental-tractor.png' },
+      { name: 'Trailers', image: '/images/cat-trailer.png' },
+      { name: 'Concrete Equipment', image: '/images/cat-tools-2.png' },
+      { name: 'Compactors', image: '/images/cat-tools.png' },
+      { name: 'Post Drivers', image: '/images/tpost.png' },
+      { name: 'Pumps', image: '/images/cat-tools.png' },
+      { name: 'Heaters', image: '/images/cat-tools-2.png' },
+      { name: 'Mini Skid Steers', image: '/images/service-tractor.png' },
+      { name: 'Miscellaneous', image: '/images/cat-tools.png' },
+      { name: 'Event Tents', image: '/images/cat-garden.png' },
     ],
   },
 ]

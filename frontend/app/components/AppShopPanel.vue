@@ -14,11 +14,12 @@
         </VoltButton>
       </div>
 
-      <div class="grid grid-cols-12 gap-4 py-8">
+      <!-- One column per section: the design's 12-column grid held four, Rentals
+           makes five, and five equal columns keep the widths even. -->
+      <div class="grid grid-cols-5 gap-4 py-8">
         <div
           v-for="section in SHOP_SECTIONS"
           :key="section.name"
-          class="col-span-3"
         >
           <h4
             class="border-line text-muted mb-4 border-b pb-3 text-xs font-semibold tracking-[0.12em] uppercase"
